@@ -1,4 +1,4 @@
- def call(errorMessage='') {
+ void call(errorMessage='') {
     //Build stage will be at the top level of the pipeline
     //stage("Build Notifications") {
  
