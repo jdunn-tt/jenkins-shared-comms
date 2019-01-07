@@ -23,6 +23,8 @@
             }
             timetradeRecipients = timetradeRecipients.trim()
 
+
+            def status = fail ? "FAIL" : "SUCCESS"
             def jobHeadline = """${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${status}"""
 
             if (!(timetradeRecipients.length() > 0) || getCommitAuthorsEmail().endsWith(CORPORATE_DOMAIN)) {
