@@ -26,7 +26,7 @@
 
         if (!timetradeRecipients.length() > 0 || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
             emailext (
-                to: timetradeRecipients.isEmpty() ? getCommitAuthorsEmail() : timetradeRecipients,
+                to: timetradeRecipients.length() > 0 ? getCommitAuthorsEmail() : timetradeRecipients,
                 subject: jobHeadline + "!",
                 body: """<p>${jobHeadline}:</p>
                     <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a> to view the results.</p>
