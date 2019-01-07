@@ -71,3 +71,9 @@ def getCommitAuthorsEmail(gitCommitId = '') {
     echo "Found Git commit author's email: ${commitAuthorsEmail}"
     return commitAuthorsEmail
 }
+
+def getCommitID() {
+    gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+    echo "Found GIT commit ID $gitCommit"
+    return gitCommit
+}
