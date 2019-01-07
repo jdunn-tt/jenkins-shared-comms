@@ -24,7 +24,7 @@
             timetradeRecipients = timetradeRecipients.trim()
         }
 
-        if (!timetradeRecipients.isEmpty() || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
+        if (!timetradeRecipients.length() > 0 || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
             emailext (
                 to: timetradeRecipients.isEmpty() ? getCommitAuthorsEmail() : timetradeRecipients,
                 subject: jobHeadline + "!",
