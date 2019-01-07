@@ -41,5 +41,5 @@ def call(fail=true, room='TT Development') {
         } catch(e) {
             echo "WARNING: sending HipChat message FAILED: ${e.getMessage()}"
         }
-    }
+    //}
 }
