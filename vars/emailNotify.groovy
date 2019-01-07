@@ -15,7 +15,6 @@
 
         if (recipients != null && !recipients.isEmpty()) {
             def recipientsArray = recipients.split(' ')
-            echo recipientsArray
             timetradeRecipients = Arrays.asList(recipientsArray).contains(CORPORATE_DOMAIN)
             // def timetradeRecipients = ""
 
@@ -26,7 +25,7 @@
             // }
             // timetradeRecipients = timetradeRecipients.trim()
             echo 'timetraderecipients'
-            echo timetradeRecipients
+            echo timetradeRecipients.join(", ")
         }
 
         if (!timetradeRecipients.isEmpty() || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
