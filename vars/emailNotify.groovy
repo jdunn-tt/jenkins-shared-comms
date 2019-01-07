@@ -22,18 +22,18 @@
                 }
             }
             timetradeRecipients = timetradeRecipients.trim()
-        }
 
-        if (!timetradeRecipients.length() > 0 || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
-            emailext (
-                to: timetradeRecipients.length() > 0 ? getCommitAuthorsEmail() : timetradeRecipients,
-                subject: jobHeadline + "!",
-                body: """<p>${jobHeadline}:</p>
-                    <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a> to view the results.</p>
-                    <p>${errorMessage}</p>"""
-            )
-        } else {
-            echo "WARNING: email notification was NOT sent: any of contributors emails doesn't belong to TimeTrade!"
+            if (!timetradeRecipients.length() > 0 || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
+                emailext (
+                    to: timetradeRecipients.length() > 0 ? getCommitAuthorsEmail() : timetradeRecipients,
+                    subject: jobHeadline + "!",
+                    body: """<p>${jobHeadline}:</p>
+                        <p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a> to view the results.</p>
+                        <p>${errorMessage}</p>"""
+                )
+            } else {
+                echo "WARNING: email notification was NOT sent: any of contributors emails doesn't belong to TimeTrade!"
+            }
         }
         // } else {
         //     def recipient = getCommitAuthorsEmail()
