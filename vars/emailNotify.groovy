@@ -11,10 +11,8 @@
         //Testing
         echo recipients
 
-        def timetradeRecipients = []
-
         if (recipients != null && !recipients.isEmpty()) {
-            // def recipientsArray = recipients.split(' ')
+            def recipientsArray = recipients.split(' ')
             // timetradeRecipients = Arrays.asList(recipientsArray).contains(CORPORATE_DOMAIN)
             def timetradeRecipients = ""
 
