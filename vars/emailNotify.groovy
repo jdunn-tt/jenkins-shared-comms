@@ -1,4 +1,4 @@
- void call(errorMessage='') {
+ void call(success=false, errorMessage='') {
     //Build stage will be at the top level of the pipeline
     //stage("Build Notifications") {
  
@@ -24,7 +24,7 @@
             timetradeRecipients = timetradeRecipients.trim()
 
 
-            def status = fail ? "FAIL" : "SUCCESS"
+            def status = success ? "SUCCESS" : "FAIL"
             def jobHeadline = """${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${status}"""
 
             if (!(timetradeRecipients.length() > 0) || getCommitAuthorsEmail().endsWith(CORPORATE_DOMAIN)) {
