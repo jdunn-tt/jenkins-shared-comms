@@ -14,18 +14,16 @@
         def timetradeRecipients = []
 
         if (recipients != null && !recipients.isEmpty()) {
-            def recipientsArray = recipients.split(' ')
-            timetradeRecipients = Arrays.asList(recipientsArray).contains(CORPORATE_DOMAIN)
-            // def timetradeRecipients = ""
+            // def recipientsArray = recipients.split(' ')
+            // timetradeRecipients = Arrays.asList(recipientsArray).contains(CORPORATE_DOMAIN)
+            def timetradeRecipients = ""
 
-            // for (def recipient_index = 0; recipient_index < recipientsArray.length; recipient_index++) {
-            //     if (recipientsArray[recipient_index].endsWith(CORPORATE_DOMAIN)) {
-            //         timetradeRecipients += recipientsArray[recipient_index] + ' '
-            //     }
-            // }
-            // timetradeRecipients = timetradeRecipients.trim()
-            echo 'timetraderecipients'
-            echo timetradeRecipients.join(", ")
+            for (def recipient_index = 0; recipient_index < recipientsArray.length; recipient_index++) {
+                if (recipientsArray[recipient_index].endsWith(CORPORATE_DOMAIN)) {
+                    timetradeRecipients += recipientsArray[recipient_index] + ' '
+                }
+            }
+            timetradeRecipients = timetradeRecipients.trim()
         }
 
         if (!timetradeRecipients.isEmpty() || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
