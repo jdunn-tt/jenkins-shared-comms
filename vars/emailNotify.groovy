@@ -24,6 +24,8 @@
             //     }
             // }
             // timetradeRecipients = timetradeRecipients.trim()
+            echo 'timetraderecipients'
+            echo timetradeRecipients
         }
 
         if (!timetradeRecipients.isEmpty() || getCommitAuthorsEmail.endsWith(CORPORATE_DOMAIN)) {
