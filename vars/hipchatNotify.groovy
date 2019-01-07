@@ -23,7 +23,7 @@ def call(fail=true, room='TT Development') {
 
     // Don't spam HipChat with pull request messages
     // Don't spam HipChat with release build where Gradle plugin commits new projects version (commit author = tt-build)
-    if (!BRANCH_NAME.startsWith('PR-') && getCommitAuthor() != 'tt-builds' && !JOB_NAME.startsWith('Tests')) {
+    //if (!BRANCH_NAME.startsWith('PR-') && getCommitAuthor() != 'tt-builds' && !JOB_NAME.startsWith('Tests')) {
         // Send a message to HipChat
         try {
             hipchatSend (
