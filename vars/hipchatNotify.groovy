@@ -6,16 +6,12 @@
  * @param errorMessage Message that contails detailed info about error which caused build failure.
  */
 
-def call(fail=true, room='TT Development') {
+def call(success=false, room='TT Development') {
     //Build stage will be at the top level of the pipeline
     //stage("Build Notifications") {
-    def status = "FAILURE"
-    def color = "RED"
 
-    if (!fail) {
-        status = "SUCCESS"
-        color = "GREEN"
-    }
+    def status = sucess ? "SUCESS" : "FAIL"
+    def color = success ? "GREEN" : "RED"
 
     // Noting that build status is null while running
     def jobHeadline = """${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${status}"""
@@ -41,5 +37,4 @@ def call(fail=true, room='TT Development') {
         } catch(e) {
             echo "WARNING: sending HipChat message FAILED: ${e.getMessage()}"
         }
-    //}
 }

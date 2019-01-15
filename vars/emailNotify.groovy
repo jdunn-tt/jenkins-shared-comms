@@ -22,7 +22,7 @@
 
 
             def status = success ? "SUCCESS" : "FAIL"
-            def jobHeadline = """${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${status}"""
+            def jobHeadline = "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${status}"
 
             if (!(timetradeRecipients.length() > 0) || getCommitAuthorsEmail().endsWith(CORPORATE_DOMAIN)) {
                 emailext (
