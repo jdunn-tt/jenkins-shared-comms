@@ -10,7 +10,7 @@ def call(success=false, room='TT Development') {
     //Build stage will be at the top level of the pipeline
     //stage("Build Notifications") {
 
-    def status = sucess ? "SUCESS" : "FAIL"
+    def status = success ? "SUCCESS" : "FAIL"
     def color = success ? "GREEN" : "RED"
 
     // Noting that build status is null while running
