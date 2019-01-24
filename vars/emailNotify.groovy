@@ -9,6 +9,9 @@
         // Returns string containing recipients separated by whitespace
         def recipients = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
 
+        echo 'into try'
+        echo recipients
+
         if (recipients != null && !recipients.isEmpty()) {
             def recipientsArray = recipients.split(' ')
             def timetradeRecipients = ""
