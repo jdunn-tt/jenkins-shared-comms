@@ -9,7 +9,7 @@
         // Returns string containing recipients separated by whitespace
         def recipients = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
 
-        echo 'into try'
+        echo 'Email Recipients'
         echo recipients
 
         if (recipients != null && !recipients.isEmpty()) {
